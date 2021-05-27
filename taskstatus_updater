@@ -1,0 +1,26 @@
+//remember to add a daily trigger so this runs automatically 
+
+function taskupdater() {
+//reading 
+  var inputSheet = SpreadsheetApp.getActive().getSheetByName("Priority Builds");
+  var outputsheet = SpreadsheetApp.getActive().getSheetByName("2021 Completed Links");
+
+  var dataRange = inputSheet.getDataRange();
+  var values = dataRange.getValues();
+
+  for (var k = values.length-1; k >= 0; k--) {
+
+    Logger.log("row "+ k +" is being examined")  
+
+
+    if (values[k] != "" && values[k][0].toString().toLowerCase().includes("done")) { 
+      row = values[k].slice(0,8);
+
+
+      Logger.log("row deleted is "+ row.slice(0,7))
+
+      activeSheet.deleteRow([k+1])  
+      outputsheet.appendRow(row)
+    }
+  }   
+}
