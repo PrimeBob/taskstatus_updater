@@ -1,4 +1,4 @@
-//remember to add a daily trigger so this runs automatically 
+//remember to add a daily trigger so this runs automatically (probably around 11-12pm)
 
 function taskupdater() {
 //reading 
